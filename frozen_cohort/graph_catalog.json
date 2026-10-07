@@ -1,0 +1,946 @@
+{
+  "version": "theory_governed_active_graph_library_v1",
+  "abnormal": [
+    {
+      "key": "crowd_escalation_chain",
+      "title": "Crowd escalation chain",
+      "polarity": "abnormal",
+      "joint_semantics": "the node set should describe one coherent Crowd escalation chain",
+      "ordered": true,
+      "matching_policy": {
+        "allow_null": true,
+        "use_conditional_refinement": true,
+        "temporal_mode": "soft_auto"
+      },
+      "nodes": [
+        {
+          "key": "opposing_crowd_motion",
+          "title": "opposing or aggressive crowd motion",
+          "cue_bundle": [
+            "many people push against each other, chase, rush, or surge in opposite directions",
+            "crowd movement looks hostile, panicked, or conflict-driven rather than orderly"
+          ],
+          "required": true,
+          "anchor": true,
+          "weight": 1.0,
+          "role": "event_anchor",
+          "phase_hint": "prelude"
+        },
+        {
+          "key": "visible_disorder_or_scatter",
+          "title": "visible disorder or panicked scatter",
+          "cue_bundle": [
+            "people scatter, run, duck, or break formation suddenly",
+            "objects thrown, barriers struck, or crowd becomes visibly chaotic"
+          ],
+          "required": true,
+          "anchor": true,
+          "weight": 1.0,
+          "role": "effect",
+          "phase_hint": "aftermath"
+        },
+        {
+          "key": "damage_or_debris",
+          "title": "damage or debris aftermath",
+          "cue_bundle": [
+            "broken objects, debris, overturned items, or disturbed scene after escalation"
+          ],
+          "required": false,
+          "anchor": false,
+          "weight": 0.5,
+          "role": "effect",
+          "phase_hint": "aftermath"
+        }
+      ],
+      "family": "crowd",
+      "status": "active",
+      "active": true,
+      "confidence": 0.8,
+      "utility": {
+        "global": 0.0,
+        "by_class": {},
+        "fp_delta": 0,
+        "fn_delta": 0
+      },
+      "counterfactual_links": [
+        "ceremonial_crowd_gathering",
+        "orderly_crowd_watching"
+      ],
+      "canonical_factors": [
+        "opposing_crowd_motion",
+        "visible_disorder_or_scatter",
+        "damage_or_debris"
+      ],
+      "applicability": [
+        "the required directly visible factors can be evaluated in the current window"
+      ],
+      "falsifiers": [
+        "a required visual anchor is absent or unresolved",
+        "the nodes cannot be assigned to compatible evidence locations in one episode"
+      ],
+      "requires_independent_validation": false
+    },
+    {
+      "key": "localized_discharge_chain",
+      "title": "Localized discharge / emission chain",
+      "polarity": "abnormal",
+      "joint_semantics": "the node set should describe one coherent Localized discharge / emission chain",
+      "ordered": true,
+      "matching_policy": {
+        "allow_null": true,
+        "use_conditional_refinement": true,
+        "temporal_mode": "soft_auto"
+      },
+      "nodes": [
+        {
+          "key": "point_flash_or_smoke",
+          "title": "point flash or point smoke at one source",
+          "cue_bundle": [
+            "tiny bright flash at hand level or barrel tip",
+            "brief white-yellow puff of smoke from a held object",
+            "single-point spark or flash from one actor, not the whole screen",
+            "short flash from one source with a clear local origin"
+          ],
+          "required": true,
+          "anchor": true,
+          "weight": 1.0,
+          "role": "event_anchor",
+          "phase_hint": "onset"
+        },
+        {
+          "key": "aim_or_held_object",
+          "title": "aiming posture or held object",
+          "cue_bundle": [
+            "arm extended toward a target",
+            "small object or long object aligned like a weapon",
+            "person clearly pointing or aiming before / during the flash"
+          ],
+          "required": false,
+          "anchor": false,
+          "weight": 0.5,
+          "role": "prelude",
+          "phase_hint": "prelude"
+        },
+        {
+          "key": "instant_reaction_or_impact",
+          "title": "instant reaction or impact consequence",
+          "cue_bundle": [
+            "hand / arm / object snaps backward right after the flash",
+            "person nearby flinches, ducks, jerks, falls, or recoils immediately",
+            "small localized impact near the line of fire",
+            "nearby crowd instantly reacts at the same moment"
+          ],
+          "required": false,
+          "anchor": false,
+          "weight": 0.5,
+          "role": "effect",
+          "phase_hint": "aftermath"
+        }
+      ],
+      "family": "impulse_or_blast",
+      "status": "active",
+      "active": true,
+      "confidence": 0.8,
+      "utility": {
+        "global": 0.0,
+        "by_class": {},
+        "fp_delta": 0,
+        "fn_delta": 0
+      },
+      "counterfactual_links": [
+        "camera_flash_or_edit",
+        "stage_effect_or_fireworks"
+      ],
+      "canonical_factors": [
+        "point_flash_or_smoke",
+        "aim_or_held_object",
+        "instant_reaction_or_impact"
+      ],
+      "applicability": [
+        "the required directly visible factors can be evaluated in the current window"
+      ],
+      "falsifiers": [
+        "a required visual anchor is absent or unresolved",
+        "the nodes cannot be assigned to compatible evidence locations in one episode"
+      ],
+      "requires_independent_validation": false
+    },
+    {
+      "key": "reciprocal_conflict_chain",
+      "title": "Reciprocal conflict chain",
+      "polarity": "abnormal",
+      "joint_semantics": "the node set should describe one coherent Reciprocal conflict chain",
+      "ordered": true,
+      "matching_policy": {
+        "allow_null": true,
+        "use_conditional_refinement": true,
+        "temporal_mode": "soft_auto"
+      },
+      "nodes": [
+        {
+          "key": "forceful_interpersonal_contact",
+          "title": "forceful interpersonal contact",
+          "cue_bundle": [
+            "clear punch, kick, shove, strike, tackle, or hard grapple",
+            "one person forcefully hits or pushes another person"
+          ],
+          "required": true,
+          "anchor": true,
+          "weight": 1.0,
+          "role": "event_anchor",
+          "phase_hint": "onset"
+        },
+        {
+          "key": "return_action_or_resistance",
+          "title": "return action or resistance",
+          "cue_bundle": [
+            "other person strikes back, grapples back, or actively resists",
+            "mutual exchange rather than carrying, supporting, or calm contact"
+          ],
+          "required": true,
+          "anchor": true,
+          "weight": 1.0,
+          "role": "event_anchor",
+          "phase_hint": "aftermath"
+        },
+        {
+          "key": "imbalance_or_fall",
+          "title": "imbalance or fall caused by the clash",
+          "cue_bundle": [
+            "one person stumbles, falls, is thrown, or loses balance because of the clash",
+            "body recoils or collapses immediately around the exchange"
+          ],
+          "required": false,
+          "anchor": false,
+          "weight": 0.5,
+          "role": "effect",
+          "phase_hint": "aftermath"
+        }
+      ],
+      "family": "human_interaction",
+      "status": "active",
+      "active": true,
+      "confidence": 0.8,
+      "utility": {
+        "global": 0.0,
+        "by_class": {},
+        "fp_delta": 0,
+        "fn_delta": 0
+      },
+      "counterfactual_links": [
+        "rescue_or_assist_interaction",
+        "sports_body_check_normal"
+      ],
+      "canonical_factors": [
+        "forceful_interpersonal_contact",
+        "return_action_or_resistance",
+        "imbalance_or_fall"
+      ],
+      "applicability": [
+        "the required directly visible factors can be evaluated in the current window"
+      ],
+      "falsifiers": [
+        "a required visual anchor is absent or unresolved",
+        "the nodes cannot be assigned to compatible evidence locations in one episode"
+      ],
+      "requires_independent_validation": false
+    },
+    {
+      "key": "source_centered_blast_chain",
+      "title": "Source-centered blast chain",
+      "polarity": "abnormal",
+      "joint_semantics": "the node set should describe one coherent Source-centered blast chain",
+      "ordered": true,
+      "matching_policy": {
+        "allow_null": true,
+        "use_conditional_refinement": true,
+        "temporal_mode": "soft_auto"
+      },
+      "nodes": [
+        {
+          "key": "source_bloom",
+          "title": "source-centered bright bloom",
+          "cue_bundle": [
+            "bright bloom begins at one origin point",
+            "sudden fireball-like or ignition-like bright source",
+            "one source becomes much brighter than surrounding scene in a single moment"
+          ],
+          "required": true,
+          "anchor": true,
+          "weight": 1.0,
+          "role": "event_anchor",
+          "phase_hint": "onset"
+        },
+        {
+          "key": "outward_expansion_or_ejecta",
+          "title": "outward expansion or ejecta",
+          "cue_bundle": [
+            "bright region expands outward from the same source",
+            "radial smoke, dust, debris, or blast front grows outward",
+            "expansion larger than a tiny muzzle-like flash"
+          ],
+          "required": true,
+          "anchor": false,
+          "weight": 1.0,
+          "role": "effect",
+          "phase_hint": "aftermath"
+        },
+        {
+          "key": "smoke_or_damage_aftermath",
+          "title": "smoke or damage aftermath",
+          "cue_bundle": [
+            "lingering smoke or dust cloud remains after the burst",
+            "damaged ground, fragments, fire, or broken environment after the blast"
+          ],
+          "required": false,
+          "anchor": false,
+          "weight": 0.5,
+          "role": "effect",
+          "phase_hint": "aftermath"
+        }
+      ],
+      "family": "impulse_or_blast",
+      "status": "active",
+      "active": true,
+      "confidence": 0.8,
+      "utility": {
+        "global": 0.0,
+        "by_class": {},
+        "fp_delta": 0,
+        "fn_delta": 0
+      },
+      "counterfactual_links": [
+        "camera_flash_or_edit",
+        "stage_effect_or_fireworks"
+      ],
+      "canonical_factors": [
+        "source_bloom",
+        "outward_expansion_or_ejecta",
+        "smoke_or_damage_aftermath"
+      ],
+      "applicability": [
+        "the required directly visible factors can be evaluated in the current window"
+      ],
+      "falsifiers": [
+        "a required visual anchor is absent or unresolved",
+        "the nodes cannot be assigned to compatible evidence locations in one episode"
+      ],
+      "requires_independent_validation": false
+    },
+    {
+      "key": "unilateral_control_chain",
+      "title": "Unilateral control / blocked escape chain",
+      "polarity": "abnormal",
+      "joint_semantics": "the node set should describe one coherent Unilateral control / blocked escape chain",
+      "ordered": true,
+      "matching_policy": {
+        "allow_null": true,
+        "use_conditional_refinement": true,
+        "temporal_mode": "soft_auto"
+      },
+      "nodes": [
+        {
+          "key": "one_sided_control",
+          "title": "one-sided control or restraint",
+          "cue_bundle": [
+            "one person pins, drags, grabs, holds down, or forcibly restrains another",
+            "interaction looks one-sided rather than mutual exchange"
+          ],
+          "required": true,
+          "anchor": true,
+          "weight": 1.0,
+          "role": "event_anchor",
+          "phase_hint": "prelude"
+        },
+        {
+          "key": "victim_distress_or_defense",
+          "title": "victim distress or defensive posture",
+          "cue_bundle": [
+            "victim cowers, shields face, pulls away, curls up, or looks frightened",
+            "clear avoidance, distress, or defensive reaction"
+          ],
+          "required": true,
+          "anchor": true,
+          "weight": 1.0,
+          "role": "effect",
+          "phase_hint": "aftermath"
+        },
+        {
+          "key": "blocked_escape_or_confinement",
+          "title": "blocked escape or confinement",
+          "cue_bundle": [
+            "victim tries to move away but path is blocked",
+            "held against wall, floor, seat, corner, or otherwise unable to leave"
+          ],
+          "required": false,
+          "anchor": false,
+          "weight": 0.5,
+          "role": "event_anchor",
+          "phase_hint": "aftermath"
+        }
+      ],
+      "family": "human_interaction",
+      "status": "active",
+      "active": true,
+      "confidence": 0.8,
+      "utility": {
+        "global": 0.0,
+        "by_class": {},
+        "fp_delta": 0,
+        "fn_delta": 0
+      },
+      "counterfactual_links": [
+        "rescue_or_assist_interaction",
+        "sports_or_ceremonial_contact"
+      ],
+      "canonical_factors": [
+        "one_sided_control",
+        "victim_distress_or_defense",
+        "blocked_escape_or_confinement"
+      ],
+      "applicability": [
+        "the required directly visible factors can be evaluated in the current window"
+      ],
+      "falsifiers": [
+        "a required visual anchor is absent or unresolved",
+        "the nodes cannot be assigned to compatible evidence locations in one episode"
+      ],
+      "requires_independent_validation": false
+    },
+    {
+      "key": "vehicle_collision_chain",
+      "title": "Vehicle collision chain",
+      "polarity": "abnormal",
+      "joint_semantics": "the node set should describe one coherent Vehicle collision chain",
+      "ordered": true,
+      "matching_policy": {
+        "allow_null": true,
+        "use_conditional_refinement": true,
+        "temporal_mode": "soft_auto"
+      },
+      "nodes": [
+        {
+          "key": "vehicle_or_traffic_object",
+          "title": "vehicle or traffic object visible",
+          "cue_bundle": [
+            "car, bus, truck, motorcycle, bicycle, or clear traffic scene visible",
+            "moving road vehicle or large traffic object is in frame"
+          ],
+          "required": true,
+          "anchor": true,
+          "weight": 1.0,
+          "role": "prelude",
+          "phase_hint": "prelude"
+        },
+        {
+          "key": "impact_or_trajectory_break",
+          "title": "impact or hard trajectory break",
+          "cue_bundle": [
+            "vehicle suddenly jerks, swerves, rotates, or stops unnaturally",
+            "vehicle visibly hits another object or another object hits it",
+            "hard crash-like motion discontinuity, not smooth driving"
+          ],
+          "required": true,
+          "anchor": true,
+          "weight": 1.0,
+          "role": "event_anchor",
+          "phase_hint": "onset"
+        },
+        {
+          "key": "collision_aftermath",
+          "title": "collision aftermath",
+          "cue_bundle": [
+            "vehicle remains stopped in damaged pose",
+            "visible debris, broken parts, crumpling, smoke, or overturned aftermath",
+            "people/objects scatter from the impact zone after contact"
+          ],
+          "required": false,
+          "anchor": false,
+          "weight": 0.5,
+          "role": "effect",
+          "phase_hint": "aftermath"
+        }
+      ],
+      "family": "traffic",
+      "status": "active",
+      "active": true,
+      "confidence": 0.8,
+      "utility": {
+        "global": 0.0,
+        "by_class": {},
+        "fp_delta": 0,
+        "fn_delta": 0
+      },
+      "counterfactual_links": [
+        "vehicle_motion_disturbance",
+        "normal_driving"
+      ],
+      "canonical_factors": [
+        "vehicle_or_traffic_object",
+        "impact_or_trajectory_break",
+        "collision_aftermath"
+      ],
+      "applicability": [
+        "the required directly visible factors can be evaluated in the current window"
+      ],
+      "falsifiers": [
+        "a required visual anchor is absent or unresolved",
+        "the nodes cannot be assigned to compatible evidence locations in one episode"
+      ],
+      "requires_independent_validation": false
+    }
+  ],
+  "normal": [
+    {
+      "key": "camera_flash_or_edit",
+      "title": "Camera flash / edit confound",
+      "polarity": "normal",
+      "joint_semantics": "the node set should describe one coherent Camera flash / edit confound",
+      "ordered": true,
+      "matching_policy": {
+        "allow_null": true,
+        "use_conditional_refinement": true,
+        "temporal_mode": "soft_auto"
+      },
+      "nodes": [
+        {
+          "key": "frame_wide_or_source_unclear_flash",
+          "title": "frame-wide or source-unclear flash",
+          "cue_bundle": [
+            "whole frame brightens at once",
+            "flash has no clear local origin point",
+            "brightness change resembles edit transition or exposure change"
+          ],
+          "required": true,
+          "anchor": true,
+          "weight": 1.0,
+          "role": "confound_anchor",
+          "phase_hint": "onset"
+        },
+        {
+          "key": "no_local_consequence",
+          "title": "no local consequence",
+          "cue_bundle": [
+            "no local smoke, impact, recoil, or human reaction tied to a source",
+            "after the flash, the scene continues without an event chain"
+          ],
+          "required": true,
+          "anchor": false,
+          "weight": 1.0,
+          "role": "effect",
+          "phase_hint": "aftermath"
+        }
+      ],
+      "family": "media_or_edit",
+      "status": "active",
+      "active": true,
+      "confidence": 0.8,
+      "utility": {
+        "global": 0.0,
+        "by_class": {},
+        "fp_delta": 0,
+        "fn_delta": 0
+      },
+      "counterfactual_links": [
+        "localized_discharge_chain",
+        "source_centered_blast_chain"
+      ],
+      "canonical_factors": [
+        "frame_wide_or_source_unclear_flash",
+        "no_local_consequence"
+      ],
+      "applicability": [
+        "the required directly visible factors can be evaluated in the current window"
+      ],
+      "falsifiers": [
+        "a required visual anchor is absent or unresolved",
+        "the nodes cannot be assigned to compatible evidence locations in one episode",
+        "a visible harmful mechanism or state change contradicts the benign explanation"
+      ],
+      "requires_independent_validation": false
+    },
+    {
+      "key": "ceremonial_crowd_gathering",
+      "title": "Ceremonial / calm crowd gathering",
+      "polarity": "normal",
+      "joint_semantics": "the node set should describe one coherent Ceremonial / calm crowd gathering",
+      "ordered": false,
+      "matching_policy": {
+        "allow_null": true,
+        "use_conditional_refinement": true,
+        "temporal_mode": "soft_auto"
+      },
+      "nodes": [
+        {
+          "key": "crowd_presence",
+          "title": "crowd present",
+          "cue_bundle": [
+            "dense crowd or many people visible"
+          ],
+          "required": true,
+          "anchor": true,
+          "weight": 1.0,
+          "role": "prelude",
+          "phase_hint": "active"
+        },
+        {
+          "key": "organized_or_calm_pattern",
+          "title": "organized or calm pattern",
+          "cue_bundle": [
+            "spectators watching, marching in order, waving flags, standing in rows, or calmly gathering",
+            "crowd moves mostly together rather than opposing or scattering"
+          ],
+          "required": true,
+          "anchor": false,
+          "weight": 1.0,
+          "role": "confound_anchor",
+          "phase_hint": "active"
+        }
+      ],
+      "family": "crowd",
+      "status": "active",
+      "active": true,
+      "confidence": 0.8,
+      "utility": {
+        "global": 0.0,
+        "by_class": {},
+        "fp_delta": 0,
+        "fn_delta": 0
+      },
+      "counterfactual_links": [
+        "crowd_escalation_chain"
+      ],
+      "canonical_factors": [
+        "crowd_presence",
+        "organized_or_calm_pattern"
+      ],
+      "applicability": [
+        "the required directly visible factors can be evaluated in the current window"
+      ],
+      "falsifiers": [
+        "a required visual anchor is absent or unresolved",
+        "the nodes cannot be assigned to compatible evidence locations in one episode",
+        "a visible harmful mechanism or state change contradicts the benign explanation"
+      ],
+      "requires_independent_validation": false
+    },
+    {
+      "key": "rescue_or_assist_interaction",
+      "title": "Rescue / assist interaction",
+      "polarity": "normal",
+      "joint_semantics": "the node set should describe one coherent Rescue / assist interaction",
+      "ordered": false,
+      "matching_policy": {
+        "allow_null": true,
+        "use_conditional_refinement": true,
+        "temporal_mode": "soft_auto"
+      },
+      "nodes": [
+        {
+          "key": "one_sided_contact",
+          "title": "one-sided contact",
+          "cue_bundle": [
+            "one person holds, lifts, drags, or supports another"
+          ],
+          "required": true,
+          "anchor": true,
+          "weight": 1.0,
+          "role": "prelude",
+          "phase_hint": "active"
+        },
+        {
+          "key": "assistive_direction",
+          "title": "assistive direction",
+          "cue_bundle": [
+            "movement looks like helping up, carrying to safety, steadying, or escorting",
+            "interaction lacks visible victim fear, active resistance, or blocked escape"
+          ],
+          "required": true,
+          "anchor": false,
+          "weight": 1.0,
+          "role": "confound_anchor",
+          "phase_hint": "active"
+        }
+      ],
+      "family": "assist_or_rescue",
+      "status": "active",
+      "active": true,
+      "confidence": 0.8,
+      "utility": {
+        "global": 0.0,
+        "by_class": {},
+        "fp_delta": 0,
+        "fn_delta": 0
+      },
+      "counterfactual_links": [
+        "unilateral_control_chain",
+        "reciprocal_conflict_chain"
+      ],
+      "canonical_factors": [
+        "one_sided_contact",
+        "assistive_direction"
+      ],
+      "applicability": [
+        "the required directly visible factors can be evaluated in the current window"
+      ],
+      "falsifiers": [
+        "a required visual anchor is absent or unresolved",
+        "the nodes cannot be assigned to compatible evidence locations in one episode",
+        "a visible harmful mechanism or state change contradicts the benign explanation"
+      ],
+      "requires_independent_validation": false
+    },
+    {
+      "key": "sports_or_ceremonial_contact",
+      "title": "Sports / ceremonial contact",
+      "polarity": "normal",
+      "joint_semantics": "the node set should describe one coherent Sports / ceremonial contact",
+      "ordered": false,
+      "matching_policy": {
+        "allow_null": true,
+        "use_conditional_refinement": true,
+        "temporal_mode": "soft_auto"
+      },
+      "nodes": [
+        {
+          "key": "contact_present",
+          "title": "contact present",
+          "cue_bundle": [
+            "people grapple, strike, or collide bodily"
+          ],
+          "required": true,
+          "anchor": true,
+          "weight": 1.0,
+          "role": "prelude",
+          "phase_hint": "active"
+        },
+        {
+          "key": "structured_nonviolent_context",
+          "title": "structured nonviolent context",
+          "cue_bundle": [
+            "ring, court, mat, uniforms, gloves, referee, coach, practice hall, staged performance",
+            "organized sports or ceremonial setting"
+          ],
+          "required": true,
+          "anchor": false,
+          "weight": 1.0,
+          "role": "confound_anchor",
+          "phase_hint": "active"
+        }
+      ],
+      "family": "sports",
+      "status": "active",
+      "active": true,
+      "confidence": 0.8,
+      "utility": {
+        "global": 0.0,
+        "by_class": {},
+        "fp_delta": 0,
+        "fn_delta": 0
+      },
+      "counterfactual_links": [
+        "reciprocal_conflict_chain",
+        "unilateral_control_chain"
+      ],
+      "canonical_factors": [
+        "contact_present",
+        "structured_nonviolent_context"
+      ],
+      "applicability": [
+        "the required directly visible factors can be evaluated in the current window"
+      ],
+      "falsifiers": [
+        "a required visual anchor is absent or unresolved",
+        "the nodes cannot be assigned to compatible evidence locations in one episode",
+        "a visible harmful mechanism or state change contradicts the benign explanation"
+      ],
+      "requires_independent_validation": false
+    },
+    {
+      "key": "stage_effect_or_fireworks",
+      "title": "Stage effect / fireworks confound",
+      "polarity": "normal",
+      "joint_semantics": "the node set should describe one coherent Stage effect / fireworks confound",
+      "ordered": false,
+      "matching_policy": {
+        "allow_null": true,
+        "use_conditional_refinement": true,
+        "temporal_mode": "soft_auto"
+      },
+      "nodes": [
+        {
+          "key": "show_like_bright_effect",
+          "title": "show-like bright effect",
+          "cue_bundle": [
+            "bright streak, spark shower, fireworks burst, or stage pyrotechnic-like emission",
+            "light effect appears celebratory or decorative rather than destructive"
+          ],
+          "required": true,
+          "anchor": true,
+          "weight": 1.0,
+          "role": "prelude",
+          "phase_hint": "active"
+        },
+        {
+          "key": "celebration_or_stage_context",
+          "title": "celebration or stage context",
+          "cue_bundle": [
+            "audience, stage, concert, festival, night sky fireworks, or show setting"
+          ],
+          "required": true,
+          "anchor": false,
+          "weight": 1.0,
+          "role": "confound_anchor",
+          "phase_hint": "active"
+        }
+      ],
+      "family": "stage_or_simulation",
+      "status": "active",
+      "active": true,
+      "confidence": 0.8,
+      "utility": {
+        "global": 0.0,
+        "by_class": {},
+        "fp_delta": 0,
+        "fn_delta": 0
+      },
+      "counterfactual_links": [
+        "source_centered_blast_chain",
+        "localized_discharge_chain"
+      ],
+      "canonical_factors": [
+        "show_like_bright_effect",
+        "celebration_or_stage_context"
+      ],
+      "applicability": [
+        "the required directly visible factors can be evaluated in the current window"
+      ],
+      "falsifiers": [
+        "a required visual anchor is absent or unresolved",
+        "the nodes cannot be assigned to compatible evidence locations in one episode",
+        "a visible harmful mechanism or state change contradicts the benign explanation"
+      ],
+      "requires_independent_validation": false
+    },
+    {
+      "key": "text_card_non_scene",
+      "title": "Text card / non-scene",
+      "polarity": "normal",
+      "joint_semantics": "the node set should describe one coherent Text card / non-scene",
+      "ordered": false,
+      "matching_policy": {
+        "allow_null": true,
+        "use_conditional_refinement": true,
+        "temporal_mode": "soft_auto"
+      },
+      "nodes": [
+        {
+          "key": "frame_dominated_by_text_or_graphic",
+          "title": "frame dominated by text or graphics",
+          "cue_bundle": [
+            "large centered title or credits",
+            "subtitles or graphic panels covering much of the frame",
+            "scoreboard, logo, poster, or non-scene graphic dominates what is visible"
+          ],
+          "required": true,
+          "anchor": true,
+          "weight": 1.0,
+          "role": "confound_anchor",
+          "phase_hint": "active"
+        }
+      ],
+      "family": "text_or_non_scene",
+      "status": "active",
+      "active": true,
+      "confidence": 0.8,
+      "utility": {
+        "global": 0.0,
+        "by_class": {},
+        "fp_delta": 0,
+        "fn_delta": 0
+      },
+      "counterfactual_links": [
+        "source_centered_blast_chain",
+        "localized_discharge_chain"
+      ],
+      "canonical_factors": [
+        "frame_dominated_by_text_or_graphic"
+      ],
+      "applicability": [
+        "the required directly visible factors can be evaluated in the current window"
+      ],
+      "falsifiers": [
+        "a required visual anchor is absent or unresolved",
+        "the nodes cannot be assigned to compatible evidence locations in one episode",
+        "a visible harmful mechanism or state change contradicts the benign explanation"
+      ],
+      "requires_independent_validation": false
+    },
+    {
+      "key": "vehicle_motion_disturbance",
+      "title": "Vehicle motion disturbance without collision",
+      "polarity": "normal",
+      "joint_semantics": "the node set should describe one coherent Vehicle motion disturbance without collision",
+      "ordered": false,
+      "matching_policy": {
+        "allow_null": true,
+        "use_conditional_refinement": true,
+        "temporal_mode": "soft_auto"
+      },
+      "nodes": [
+        {
+          "key": "vehicle_scene",
+          "title": "vehicle scene",
+          "cue_bundle": [
+            "vehicle or traffic scene visible"
+          ],
+          "required": true,
+          "anchor": true,
+          "weight": 1.0,
+          "role": "prelude",
+          "phase_hint": "active"
+        },
+        {
+          "key": "motion_disturbance_only",
+          "title": "motion disturbance only",
+          "cue_bundle": [
+            "camera shake, road bump, fast driving, or hard turn without visible hit",
+            "no debris, deformation, stopped crash pose, or collision pair"
+          ],
+          "required": true,
+          "anchor": false,
+          "weight": 1.0,
+          "role": "confound_anchor",
+          "phase_hint": "active"
+        }
+      ],
+      "family": "traffic",
+      "status": "active",
+      "active": true,
+      "confidence": 0.8,
+      "utility": {
+        "global": 0.0,
+        "by_class": {},
+        "fp_delta": 0,
+        "fn_delta": 0
+      },
+      "counterfactual_links": [
+        "vehicle_collision_chain",
+        "near_miss_driving_event"
+      ],
+      "canonical_factors": [
+        "vehicle_scene",
+        "motion_disturbance_only"
+      ],
+      "applicability": [
+        "the required directly visible factors can be evaluated in the current window"
+      ],
+      "falsifiers": [
+        "a required visual anchor is absent or unresolved",
+        "the nodes cannot be assigned to compatible evidence locations in one episode",
+        "a visible harmful mechanism or state change contradicts the benign explanation"
+      ],
+      "requires_independent_validation": false
+    }
+  ]
+}

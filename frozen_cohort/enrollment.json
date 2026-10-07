@@ -1,0 +1,78 @@
+{
+  "windows": 400,
+  "source_groups": 200,
+  "role_windows": {
+    "fit": 244,
+    "validation": 78,
+    "calibration": 78
+  },
+  "inventory_videos": 3950,
+  "train_media_scope": "official_five_parts_when_present; auxiliary_analysis_copies_excluded",
+  "selected_primary_classes": {
+    "A": 103,
+    "B1": 18,
+    "B2": 17,
+    "B4": 17,
+    "B5": 11,
+    "B6": 17,
+    "G": 17
+  },
+  "excluded_design_source_groups": [
+    "v=3ycazwdqx_y",
+    "v=domwkuivcfw",
+    "v=qcn8g205zhu",
+    "v=ts_92ekcgmi"
+  ],
+  "exclusion_identity_source": {
+    "path": "/mnt/c/XDViolence_Graph_Distillation/ot_graph_advantage_conditional_ot_v3_revision/runs/governed_v912_b1b4_minimal_effect_20260915/enrollment/windows.jsonl",
+    "sha256": "0fb8db7638f34e205e907d8779887d80d5fe92305511e0949cec7863bf941752"
+  },
+  "probe_failures": [],
+  "label_counts": {
+    "filename_A_normal": 206,
+    "72B_positive_anchor_weak": 97,
+    "unlabelled_context": 97
+  },
+  "history_status": "development_exposed_not_certified_unseen",
+  "hard_normal_semantics_verified": false,
+  "claim_limit": "source-disjoint weak-anchor pilot, not frame gold or six-class benchmark",
+  "role_scope": {
+    "fit": {
+      "sources": 122,
+      "classes": {
+        "A": 122,
+        "B4": 11,
+        "B5": 7,
+        "B6": 11,
+        "G": 15,
+        "B1": 10,
+        "B2": 11
+      }
+    },
+    "calibration": {
+      "sources": 39,
+      "classes": {
+        "B2": 3,
+        "G": 4,
+        "A": 42,
+        "B6": 5,
+        "B4": 3,
+        "B1": 4,
+        "B5": 2
+      }
+    },
+    "validation": {
+      "sources": 39,
+      "classes": {
+        "B1": 4,
+        "B2": 4,
+        "G": 4,
+        "A": 42,
+        "B4": 3,
+        "B5": 2,
+        "B6": 4
+      }
+    }
+  },
+  "six_class_scope_all_roles": true
+}
